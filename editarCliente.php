@@ -58,30 +58,35 @@ if (!$cliente) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleEditarCliente.css">
     <title>Editar Cliente</title>
 </head>
 <body>
-    <h1>Editar Cliente</h1>
-    <nav>
-        <a href="index.php">Cadastrar</a>
-        <a href="clientes.php">Ver Clientes</a>
-    </nav>
+    <div class="page">
+        <div class="card">
+            <h1>Editar Cliente</h1>
+            <nav>
+                <a href="index.php">Cadastrar</a>
+                <a href="clientes.php">Ver Clientes</a>
+            </nav>
 
-    <?php if ($mensagem): ?>
-        <p style="color: red;"><?= htmlspecialchars($mensagem) ?></p>
-    <?php endif; ?>
+            <?php if ($mensagem): ?>
+                <p class="message"><?= htmlspecialchars($mensagem) ?></p>
+            <?php endif; ?>
 
-    <form method="POST" action="editarCliente.php?id=<?= $cliente['id'] ?>">
-        <label>Nome</label>
-        <input type="text" name="nome" value="<?= htmlspecialchars($_POST['nome'] ?? $cliente['nome']) ?>" required>
+            <form method="POST" action="editarCliente.php?id=<?= $cliente['id'] ?>">
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" name="nome" value="<?= htmlspecialchars($_POST['nome'] ?? $cliente['nome']) ?>" required>
 
-        <label>Email</label>
-        <input type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? $cliente['email']) ?>" required>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? $cliente['email']) ?>" required>
 
-        <label>Telefone</label>
-        <input type="text" name="telefone" value="<?= htmlspecialchars($_POST['telefone'] ?? $cliente['telefone']) ?>" required>
+                <label for="telefone">Telefone</label>
+                <input id="telefone" type="text" name="telefone" value="<?= htmlspecialchars($_POST['telefone'] ?? $cliente['telefone']) ?>" required>
 
-        <button type="submit">Salvar</button>
-    </form>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
