@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f6fb;
+    margin: 0;
+    padding: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+th,td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #2c3e50;
+    color: white;
+}
+a{
+    color:#2c3e50;
+    text-decoration:none;
+    margin-right:10px;
+}
+a:hover{
+    text-decoration:underline;
+}
+
+/*CSS para modificar o botao de editar,excluir */
+.btn{
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 5px;
+    transition: 0.3s ease;
+}
+.btn:hover {
+    opacity: 0.9;
+}
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+}
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+.btn-edit:hover {
+    background-color: #2980b9;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+/* CSS para modificar o cadastrar/atualizar lista */
+
+.nav-link {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.nav-link:hover {
+    background-color: #1e2b38;
+}

@@ -1,6 +1,11 @@
 <?php
 require_once 'conexaoDb.php';
 
+/** @var PDO $pdo */
+if (!isset($pdo) || !($pdo instanceof PDO)) {
+    die('Não foi possível conectar ao banco de dados.');
+}
+
 $mensagem = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome'] ?? '');
@@ -35,31 +40,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleIndex.css">
     <title>Sistema de Clientes</title>
 </head>
 <body>
-    <h1>Sistema de Clientes</h1>
-    <nav>
-        <a href="index.php">Cadastrar</a>
-        <a href="clientes.php">Ver Clientes</a>
-    </nav>
+    <div class="page">
+        <div class="card">
+            <h1>Sistema de Clientes</h1>
+            <nav class="nav-links">
+                <a class="nav-link active" href="index.php">Cadastrar</a>
+                <a class="nav-link" href="clientes.php">Ver Clientes</a>
+            </nav>
 
-    <?php if ($mensagem): ?>
-        <p style="color: green;"><?= htmlspecialchars($mensagem) ?></p>
-    <?php endif; ?>
+            <?php if ($mensagem): ?>
+                <p class="message"><?= htmlspecialchars($mensagem) ?></p>
+            <?php endif; ?>
 
-    <form method="POST" action="">
-        <label>Nome</label>
-        <input type="text" name="nome" value="<?= htmlspecialchars($_POST['nome'] ?? '') ?>" required>
+            <form method="POST" action="">
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" name="nome" value="<?= htmlspecialchars($_POST['nome'] ?? '') ?>" required>
 
-        <label>Email</label>
-        <input type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" required>
 
-        <label>Telefone</label>
-        <input type="text" name="telefone" value="<?= htmlspecialchars($_POST['telefone'] ?? '') ?>" required>
+                <label for="telefone">Telefone</label>
+                <input id="telefone" type="text" name="telefone" value="<?= htmlspecialchars($_POST['telefone'] ?? '') ?>" required>
 
-        <button type="submit">Cadastrar</button>
-        <button type="reset">Limpar</button>
-    </form>
+                <div class="actions">
+                    <button type="submit">Cadastrar</button>
+                    <button type="reset" class="secondary">Limpar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

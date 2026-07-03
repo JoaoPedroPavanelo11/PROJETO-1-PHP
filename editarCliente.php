@@ -1,6 +1,11 @@
 <?php
 require_once 'conexaoDb.php';
 
+/** @var PDO $pdo */
+if (!isset($pdo) || !($pdo instanceof PDO)) {
+    die('Não foi possível conectar ao banco de dados.');
+}
+
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 if (!$id) {
     header('Location: clientes.php');
